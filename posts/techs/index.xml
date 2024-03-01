@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>🖥️techs on 木木的小站</title>
-    <link>https://blog.l50.top/posts/techs/</link>
+    <link>http://localhost:1313/posts/techs/</link>
     <description>Recent content in 🖥️techs on 木木的小站</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Fri, 01 Mar 2024 23:11:16 +0800</lastBuildDate>
-    <atom:link href="https://blog.l50.top/posts/techs/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/posts/techs/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>使用cron自动化需要注意的事</title>
-      <link>https://blog.l50.top/posts/techs/%E4%BD%BF%E7%94%A8cron%E8%87%AA%E5%8A%A8%E5%8C%96%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E4%BA%8B/</link>
+      <link>http://localhost:1313/posts/techs/%E4%BD%BF%E7%94%A8cron%E8%87%AA%E5%8A%A8%E5%8C%96%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E4%BA%8B/</link>
       <pubDate>Fri, 01 Mar 2024 23:11:16 +0800</pubDate>
-      <guid>https://blog.l50.top/posts/techs/%E4%BD%BF%E7%94%A8cron%E8%87%AA%E5%8A%A8%E5%8C%96%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E4%BA%8B/</guid>
+      <guid>http://localhost:1313/posts/techs/%E4%BD%BF%E7%94%A8cron%E8%87%AA%E5%8A%A8%E5%8C%96%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E4%BA%8B/</guid>
       <description>使用cron记得调整本地时间与预期时区，一般的国外VPS都是美国时区，你要想在中国时间运行，你得修改localtime 的时区为Asia/Sh</description>
     </item>
     <item>
       <title>Debian12安装MariaDB_10.11</title>
-      <link>https://blog.l50.top/posts/techs/debian12%E5%AE%89%E8%A3%85mariadb_10.11/</link>
+      <link>http://localhost:1313/posts/techs/debian12%E5%AE%89%E8%A3%85mariadb_10.11/</link>
       <pubDate>Fri, 01 Mar 2024 22:33:50 +0800</pubDate>
-      <guid>https://blog.l50.top/posts/techs/debian12%E5%AE%89%E8%A3%85mariadb_10.11/</guid>
+      <guid>http://localhost:1313/posts/techs/debian12%E5%AE%89%E8%A3%85mariadb_10.11/</guid>
       <description>在 Debian 12 上安装 MariaDB 10.11 1.在终端中运行下述命令更新系统： 1 sudo apt update &amp;amp;&amp;amp; sudo apt upgrade 2.在终端中运行下述命令安装MariaDB 10.11： 1 sudo apt install mariadb-server 3.完成后</description>
     </item>
     <item>
       <title>Hugo折腾记录</title>
-      <link>https://blog.l50.top/posts/techs/hugo%E6%8A%98%E8%85%BE%E8%AE%B0%E5%BD%95/</link>
+      <link>http://localhost:1313/posts/techs/hugo%E6%8A%98%E8%85%BE%E8%AE%B0%E5%BD%95/</link>
       <pubDate>Sat, 04 Mar 2023 23:44:32 +0800</pubDate>
-      <guid>https://blog.l50.top/posts/techs/hugo%E6%8A%98%E8%85%BE%E8%AE%B0%E5%BD%95/</guid>
+      <guid>http://localhost:1313/posts/techs/hugo%E6%8A%98%E8%85%BE%E8%AE%B0%E5%BD%95/</guid>
       <description>在终端直接输入hugo server -D就可以在本地预览了，本地预览网址为 localhost:1313， 输入hugo就可以生成public文件夹，这个文</description>
     </item>
   </channel>
