@@ -10,7 +10,7 @@
 <meta name="description" content="在终端直接输入hugo server -D就可以在本地预览了，本地预览网址为 localhost:1313， 输入hugo就可以生成public文件夹，这个文">
 <meta name="author" content="木木">
 <link rel="canonical" href="https://blog.l50.top/posts/techs/hugo%E6%8A%98%E8%85%BE%E8%AE%B0%E5%BD%95/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.b609c58d5c11bb90b1a54e04005d74ad1ddf22165eb79f5533967e57df9c3b50.css" integrity="sha256-tgnFjVwRu5CxpU4EAF10rR3fIhZet59VM5Z&#43;V9&#43;cO1A=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.a3186261659c29aaa8834ee3f2c7c92177efbfe9cc8ba3578c1f693370c9b17a.css" integrity="sha256-oxhiYWWcKaqog07j8sfJIXfvv&#43;nMi6NXjB9pM3DJsXo=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://blog.l50.top/img/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://blog.l50.top/img/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://blog.l50.top/img/favicon-32x32.png">
@@ -24,6 +24,34 @@
         #theme-toggle,
         .top-link {
             display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
         }
 
     </style>
@@ -102,10 +130,14 @@
 </script>
 </head>
 
-<body class=" dark" id="top">
+<body class="" id="top">
 <script>
-    if (localStorage.getItem("pref-theme") === "light") {
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
         document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
     }
 
 </script>
@@ -115,7 +147,7 @@
         <div class="logo">
             <a href="https://blog.l50.top/" accesskey="h" title="木木的小站 (Alt + H)">
                 <img src="https://blog.l50.top/img/favicon.ico" alt="" aria-label="logo"
-                    height="35">木木的小站</a>
+                    height="50">木木的小站</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -202,12 +234,12 @@
       <li><a href="https://blog.l50.top/tags/life/">Life</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="https://blog.l50.top/posts/life/rsa%E7%AE%97%E6%B3%95%E5%92%8Cecc%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95%E7%9A%84ssl%E8%AF%81%E4%B9%A6%E5%8C%BA%E5%88%AB%E5%AF%B9%E6%AF%94/">
+  <a class="prev" href="https://blog.l50.top/posts/techs/rsa%E7%AE%97%E6%B3%95%E5%92%8Cecc%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95%E7%9A%84ssl%E8%AF%81%E4%B9%A6%E5%8C%BA%E5%88%AB%E5%AF%B9%E6%AF%94/">
     <span class="title">« Prev</span>
     <br>
     <span>RSA算法和ECC加密算法的SSL证书区别对比</span>
   </a>
-  <a class="next" href="https://blog.l50.top/posts/life/git-core.autocrlf%E9%85%8D%E7%BD%AE%E8%AF%B4%E6%98%8E/">
+  <a class="next" href="https://blog.l50.top/posts/techs/git-core.autocrlf%E9%85%8D%E7%BD%AE%E8%AF%B4%E6%98%8E/">
     <span class="title">Next »</span>
     <br>
     <span>Git Core.autocrlf配置说明</span>
