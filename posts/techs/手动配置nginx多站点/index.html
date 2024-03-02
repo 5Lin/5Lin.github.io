@@ -5,11 +5,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>使用cron自动化需要注意的事 | 木木的小站</title>
+<title>手动配置nginx多站点 | 木木的小站</title>
 <meta name="keywords" content="Daily, Life">
-<meta name="description" content="使用cron记得调整本地时间与预期时区，一般的国外VPS都是美国时区，你要想在中国时间运行，你得修改localtime 的时区为Asia/Sh">
+<meta name="description" content="要手动配置NGINX多站点，您可以按照以下步骤进行操作： 安装NGINX：首先，确保您已经在服务器上安装了NGINX。您可以通过在终端中运行适">
 <meta name="author" content="木木">
-<link rel="canonical" href="https://blog.l50.top/posts/techs/%E4%BD%BF%E7%94%A8cron%E8%87%AA%E5%8A%A8%E5%8C%96%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E4%BA%8B/">
+<link rel="canonical" href="https://blog.l50.top/posts/techs/%E6%89%8B%E5%8A%A8%E9%85%8D%E7%BD%AEnginx%E5%A4%9A%E7%AB%99%E7%82%B9/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.b609c58d5c11bb90b1a54e04005d74ad1ddf22165eb79f5533967e57df9c3b50.css" integrity="sha256-tgnFjVwRu5CxpU4EAF10rR3fIhZet59VM5Z&#43;V9&#43;cO1A=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://blog.l50.top/img/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://blog.l50.top/img/favicon-16x16.png">
@@ -18,7 +18,7 @@
 <link rel="mask-icon" href="https://blog.l50.top/android-chrome-512x512.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="https://blog.l50.top/posts/techs/%E4%BD%BF%E7%94%A8cron%E8%87%AA%E5%8A%A8%E5%8C%96%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E4%BA%8B/">
+<link rel="alternate" hreflang="en" href="https://blog.l50.top/posts/techs/%E6%89%8B%E5%8A%A8%E9%85%8D%E7%BD%AEnginx%E5%A4%9A%E7%AB%99%E7%82%B9/">
 <noscript>
     <style>
         #theme-toggle,
@@ -27,18 +27,18 @@
         }
 
     </style>
-</noscript><meta property="og:title" content="使用cron自动化需要注意的事" />
-<meta property="og:description" content="使用cron记得调整本地时间与预期时区，一般的国外VPS都是美国时区，你要想在中国时间运行，你得修改localtime 的时区为Asia/Sh" />
+</noscript><meta property="og:title" content="手动配置nginx多站点" />
+<meta property="og:description" content="要手动配置NGINX多站点，您可以按照以下步骤进行操作： 安装NGINX：首先，确保您已经在服务器上安装了NGINX。您可以通过在终端中运行适" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.l50.top/posts/techs/%E4%BD%BF%E7%94%A8cron%E8%87%AA%E5%8A%A8%E5%8C%96%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E4%BA%8B/" />
+<meta property="og:url" content="https://blog.l50.top/posts/techs/%E6%89%8B%E5%8A%A8%E9%85%8D%E7%BD%AEnginx%E5%A4%9A%E7%AB%99%E7%82%B9/" />
 <meta property="og:image" content="https://blog.l50.top/img/Pictures/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2024-03-01T23:11:16+08:00" />
-<meta property="article:modified_time" content="2024-03-01T23:11:16+08:00" />
+<meta property="article:published_time" content="2024-03-02T08:29:56+08:00" />
+<meta property="article:modified_time" content="2024-03-02T08:29:56+08:00" />
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:image" content="https://blog.l50.top/img/Pictures/" />
-<meta name="twitter:title" content="使用cron自动化需要注意的事"/>
-<meta name="twitter:description" content="使用cron记得调整本地时间与预期时区，一般的国外VPS都是美国时区，你要想在中国时间运行，你得修改localtime 的时区为Asia/Sh"/>
+<meta name="twitter:title" content="手动配置nginx多站点"/>
+<meta name="twitter:description" content="要手动配置NGINX多站点，您可以按照以下步骤进行操作： 安装NGINX：首先，确保您已经在服务器上安装了NGINX。您可以通过在终端中运行适"/>
 
 
 <script type="application/ld+json">
@@ -61,8 +61,8 @@
     {
       "@type": "ListItem",
       "position":  3 ,
-      "name": "使用cron自动化需要注意的事",
-      "item": "https://blog.l50.top/posts/techs/%E4%BD%BF%E7%94%A8cron%E8%87%AA%E5%8A%A8%E5%8C%96%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E4%BA%8B/"
+      "name": "手动配置nginx多站点",
+      "item": "https://blog.l50.top/posts/techs/%E6%89%8B%E5%8A%A8%E9%85%8D%E7%BD%AEnginx%E5%A4%9A%E7%AB%99%E7%82%B9/"
     }
   ]
 }
@@ -71,24 +71,24 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "使用cron自动化需要注意的事",
-  "name": "使用cron自动化需要注意的事",
-  "description": "使用cron记得调整本地时间与预期时区，一般的国外VPS都是美国时区，你要想在中国时间运行，你得修改localtime 的时区为Asia/Sh",
+  "headline": "手动配置nginx多站点",
+  "name": "手动配置nginx多站点",
+  "description": "要手动配置NGINX多站点，您可以按照以下步骤进行操作： 安装NGINX：首先，确保您已经在服务器上安装了NGINX。您可以通过在终端中运行适",
   "keywords": [
     "Daily", "Life"
   ],
-  "articleBody": "使用cron记得调整本地时间与预期时区，一般的国外VPS都是美国时区，你要想在中国时间运行，你得修改localtime 的时区为Asia/Shanghai\n1. 查看VPS时间，最后的+0800就是时区。 # date -R Mon, 27 Feb 2012 17:32:07 +0800\n一般来说时间有误的VPS都不在东八区，所以如果发现你的VPS时区不对，首先要做的就是校正时区 （如果VPS是xen的就需要先执行 echo 1 \u003e /proc/sys/xen/independent_wallclock）\n2. 校正时区 # rm -rf /etc/localtime # ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime\n校正之后再date -R一次，如果时间对了那就OK了（通常情况openvz VPS只要修改时区就可以），反之继续同步时间。\n如果您想手动修改/etc/localtime文件来更改时区设置，请按照以下步骤进行操作：\n打开终端并以root用户身份登录。\n备份当前的/etc/localtime文件，以防止意外更改。可以使用以下命令进行备份：\n1 sudo cp /etc/localtime /etc/localtime.bak 确定您想要设置的时区文件的路径。在中国，通常使用/usr/share/zoneinfo/Asia/Shanghai作为时区文件。您可以根据自己所在的城市选择相应的路径。例如，如果您在北京，可以使用/usr/share/zoneinfo/Asia/Shanghai。\n使用以下命令将所选的时区文件复制到/etc/localtime：\n1 sudo cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime 完成后，您可以验证时区设置是否已更改。可以运行以下命令来检查：\n1 date 如果时区设置已正确更改，输出的时间和时区应与您所选择的城市相匹配。\n请注意，手动修改/etc/localtime文件是一种更改时区设置的方法，但并不是官方推荐的方式。使用官方提供的工具如dpkg-reconfigure来更改时区设置更为可靠和推荐。如果您之前尝试使用dpkg-reconfigure命令时未能成功更改时区，可能还有其他问题存在，建议仔细检查和排除其他可能的原因。\n",
-  "wordCount" : "781",
+  "articleBody": "要手动配置NGINX多站点，您可以按照以下步骤进行操作： 安装NGINX：首先，确保您已经在服务器上安装了NGINX。您可以通过在终端中运行适用于您的操作系统的相应命令来安装NGINX。\n配置站点文件夹：在NGINX配置文件中，每个站点都有一个单独的配置文件。首先，创建一个文件夹来存储您的站点配置文件。通常，这个文件夹位于/etc/nginx/sites-available/目录下。您可以使用以下命令创建该文件夹：\n1 sudo mkdir /etc/nginx/sites-available/ 创建站点配置文件：在站点配置文件夹中，为每个站点创建一个单独的配置文件。您可以使用任何文本编辑器创建这些文件，并按照以下示例进行配置：\n1 2 3 4 5 6 7 8 9 server { listen 80; server_name example.com; root /var/www/example.com; location / { index index.html; } } 在上面的示例中，example.com是您的站点域名，/var/www/example.com是您的站点文件夹路径。您可以根据您的实际情况进行修改。\n创建站点链接：创建一个符号链接将站点配置文件链接到/etc/nginx/sites-enabled/目录。这样，NGINX将加载这些配置文件。您可以使用以下命令创建链接：\n1 sudo ln -s /etc/nginx/sites-available/example.com /etc/nginx/sites-enabled/ 将example.com替换为您的站点配置文件的实际名称。\n检查配置并重新加载NGINX：使用以下命令检查NGINX配置文件的语法是否正确：\n1 sudo nginx -t 如果没有错误，重新加载NGINX以应用新的配置：\n1 sudo systemctl reload nginx 现在，您的新站点应该已经配置好了。\n重复步骤3到步骤5以配置更多的站点。每个站点都应该有一个独立的配置文件，并在/etc/nginx/sites-enabled/目录中创建一个符号链接。\n请注意，上述步骤是基于Linux系统的示例。如果您使用的是其他操作系统，请根据其特定的配置方式进行相应的更改。\n",
+  "wordCount" : "716",
   "inLanguage": "en",
-  "image":"https://blog.l50.top/img/Pictures/","datePublished": "2024-03-01T23:11:16+08:00",
-  "dateModified": "2024-03-01T23:11:16+08:00",
+  "image":"https://blog.l50.top/img/Pictures/","datePublished": "2024-03-02T08:29:56+08:00",
+  "dateModified": "2024-03-02T08:29:56+08:00",
   "author":[{
     "@type": "Person",
     "name": "木木"
   }],
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://blog.l50.top/posts/techs/%E4%BD%BF%E7%94%A8cron%E8%87%AA%E5%8A%A8%E5%8C%96%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E4%BA%8B/"
+    "@id": "https://blog.l50.top/posts/techs/%E6%89%8B%E5%8A%A8%E9%85%8D%E7%BD%AEnginx%E5%A4%9A%E7%AB%99%E7%82%B9/"
   },
   "publisher": {
     "@type": "Organization",
@@ -181,9 +181,9 @@
   <header class="post-header">
     <div class="breadcrumbs"><a href="https://blog.l50.top/">Home</a>&nbsp;»&nbsp;<a href="https://blog.l50.top/posts/">Posts</a>&nbsp;»&nbsp;<a href="https://blog.l50.top/posts/techs/">🖥️techs</a></div>
     <h1 class="post-title entry-hint-parent">
-      使用cron自动化需要注意的事
+      手动配置nginx多站点
     </h1>
-    <div class="post-meta"><span title='2024-03-01 23:11:16 +0800 CST'>2024-03-01</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;木木
+    <div class="post-meta"><span title='2024-03-02 08:29:56 +0800 CST'>2024-03-02</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;木木
 
 </div>
   </header> 
@@ -191,60 +191,87 @@
         
 </figure>
 
-  <div class="post-content"><p>使用cron记得调整本地时间与预期时区，一般的国外VPS都是美国时区，你要想在中国时间运行，你得修改localtime 的时区为Asia/Shanghai</p>
-<p><strong>1. 查看VPS时间，最后的+0800就是时区。</strong>
-# date -R
-Mon, 27 Feb 2012 17:32:07 +0800</p>
-<p>一般来说时间有误的VPS都不在东八区，所以如果发现你的VPS时区不对，首先要做的就是校正时区
-（如果VPS是xen的就需要先执行 echo 1 &gt; /proc/sys/xen/independent_wallclock）</p>
-<p><strong>2. 校正时区</strong>
-# rm -rf /etc/localtime
-# ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</p>
-<p>校正之后再date -R一次，如果时间对了那就OK了（通常情况openvz VPS只要修改时区就可以），反之继续同步时间。</p>
-<p>如果您想手动修改<code>/etc/localtime</code>文件来更改时区设置，请按照以下步骤进行操作：</p>
+  <div class="post-content"><pre><code>要手动配置NGINX多站点，您可以按照以下步骤进行操作：
+</code></pre>
 <ol>
 <li>
-<p>打开终端并以root用户身份登录。</p>
+<p>安装NGINX：首先，确保您已经在服务器上安装了NGINX。您可以通过在终端中运行适用于您的操作系统的相应命令来安装NGINX。</p>
 </li>
 <li>
-<p>备份当前的<code>/etc/localtime</code>文件，以防止意外更改。可以使用以下命令进行备份：</p>
+<p>配置站点文件夹：在NGINX配置文件中，每个站点都有一个单独的配置文件。首先，创建一个文件夹来存储您的站点配置文件。通常，这个文件夹位于<code>/etc/nginx/sites-available/</code>目录下。您可以使用以下命令创建该文件夹：</p>
 <div class="highlight"><div style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>sudo cp /etc/localtime /etc/localtime.bak
+<pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>sudo mkdir /etc/nginx/sites-available/
 </span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 <li>
-<p>确定您想要设置的时区文件的路径。在中国，通常使用<code>/usr/share/zoneinfo/Asia/Shanghai</code>作为时区文件。您可以根据自己所在的城市选择相应的路径。例如，如果您在北京，可以使用<code>/usr/share/zoneinfo/Asia/Shanghai</code>。</p>
+<p>创建站点配置文件：在站点配置文件夹中，为每个站点创建一个单独的配置文件。您可以使用任何文本编辑器创建这些文件，并按照以下示例进行配置：</p>
+<div class="highlight"><div style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">9
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-nginx" data-lang="nginx"><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">server</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#fff;font-weight:bold">listen</span> <span style="color:#ff0;font-weight:bold">80</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#fff;font-weight:bold">server_name</span> <span style="color:#0ff;font-weight:bold">example.com</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#fff;font-weight:bold">root</span> <span style="color:#0ff;font-weight:bold">/var/www/example.com</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#fff;font-weight:bold">location</span> <span style="color:#0ff;font-weight:bold">/</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#fff;font-weight:bold">index</span> <span style="color:#0ff;font-weight:bold">index.html</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在上面的示例中，<code>example.com</code>是您的站点域名，<code>/var/www/example.com</code>是您的站点文件夹路径。您可以根据您的实际情况进行修改。</p>
 </li>
 <li>
-<p>使用以下命令将所选的时区文件复制到<code>/etc/localtime</code>：</p>
+<p>创建站点链接：创建一个符号链接将站点配置文件链接到<code>/etc/nginx/sites-enabled/</code>目录。这样，NGINX将加载这些配置文件。您可以使用以下命令创建链接：</p>
 <div class="highlight"><div style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>sudo cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+<pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>sudo ln -s /etc/nginx/sites-available/example.com /etc/nginx/sites-enabled/
 </span></span></code></pre></td></tr></table>
 </div>
-</div></li>
+</div><p>将<code>example.com</code>替换为您的站点配置文件的实际名称。</p>
+</li>
 <li>
-<p>完成后，您可以验证时区设置是否已更改。可以运行以下命令来检查：</p>
+<p>检查配置并重新加载NGINX：使用以下命令检查NGINX配置文件的语法是否正确：</p>
 <div class="highlight"><div style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>date
+<pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>sudo nginx -t
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>如果时区设置已正确更改，输出的时间和时区应与您所选择的城市相匹配。</p>
+</div><p>如果没有错误，重新加载NGINX以应用新的配置：</p>
+<div class="highlight"><div style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-gdscript3" data-lang="gdscript3"><span style="display:flex;"><span>sudo systemctl reload nginx
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>现在，您的新站点应该已经配置好了。</p>
 </li>
 </ol>
-<p>请注意，手动修改<code>/etc/localtime</code>文件是一种更改时区设置的方法，但并不是官方推荐的方式。使用官方提供的工具如<code>dpkg-reconfigure</code>来更改时区设置更为可靠和推荐。如果您之前尝试使用<code>dpkg-reconfigure</code>命令时未能成功更改时区，可能还有其他问题存在，建议仔细检查和排除其他可能的原因。</p>
+<p>重复步骤3到步骤5以配置更多的站点。每个站点都应该有一个独立的配置文件，并在<code>/etc/nginx/sites-enabled/</code>目录中创建一个符号链接。</p>
+<p>请注意，上述步骤是基于Linux系统的示例。如果您使用的是其他操作系统，请根据其特定的配置方式进行相应的更改。</p>
 
 
   </div>
@@ -255,15 +282,15 @@ Mon, 27 Feb 2012 17:32:07 +0800</p>
       <li><a href="https://blog.l50.top/tags/life/">Life</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="https://blog.l50.top/posts/techs/lightsail%E8%87%AA%E5%8A%A8%E6%A3%80%E6%B5%8B%E7%94%A8%E9%87%8F%E8%BE%BE95%E8%87%AA%E5%8A%A8%E5%85%B3%E6%9C%BA/">
+  <a class="prev" href="https://blog.l50.top/posts/techs/%E6%89%8B%E5%8A%A8%E7%94%9F%E6%88%90%E8%87%AA%E7%AD%BE%E8%AF%81%E4%B9%A6/">
     <span class="title">« Prev</span>
     <br>
-    <span>Lightsail自动检测用量（达95%自动关机)</span>
+    <span>手动生成自签证书</span>
   </a>
-  <a class="next" href="https://blog.l50.top/posts/techs/debian12%E5%AE%89%E8%A3%85mariadb_10.11/">
+  <a class="next" href="https://blog.l50.top/posts/techs/lightsail%E8%87%AA%E5%8A%A8%E6%A3%80%E6%B5%8B%E7%94%A8%E9%87%8F%E8%BE%BE95%E8%87%AA%E5%8A%A8%E5%85%B3%E6%9C%BA/">
     <span class="title">Next »</span>
     <br>
-    <span>Debian12安装MariaDB_10.11</span>
+    <span>Lightsail自动检测用量（达95%自动关机)</span>
   </a>
 </nav>
 
