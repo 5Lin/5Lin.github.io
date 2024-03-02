@@ -2,73 +2,73 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Daily on 木木的小站</title>
-    <link>http://localhost:1313/tags/daily/</link>
+    <link>https://blog.l50.top/tags/daily/</link>
     <description>Recent content in Daily on 木木的小站</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Fri, 01 Mar 2024 23:11:16 +0800</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/daily/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://blog.l50.top/tags/daily/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>使用cron自动化需要注意的事</title>
-      <link>http://localhost:1313/posts/techs/%E4%BD%BF%E7%94%A8cron%E8%87%AA%E5%8A%A8%E5%8C%96%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E4%BA%8B/</link>
+      <link>https://blog.l50.top/posts/techs/%E4%BD%BF%E7%94%A8cron%E8%87%AA%E5%8A%A8%E5%8C%96%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E4%BA%8B/</link>
       <pubDate>Fri, 01 Mar 2024 23:11:16 +0800</pubDate>
-      <guid>http://localhost:1313/posts/techs/%E4%BD%BF%E7%94%A8cron%E8%87%AA%E5%8A%A8%E5%8C%96%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E4%BA%8B/</guid>
+      <guid>https://blog.l50.top/posts/techs/%E4%BD%BF%E7%94%A8cron%E8%87%AA%E5%8A%A8%E5%8C%96%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E4%BA%8B/</guid>
       <description>使用cron记得调整本地时间与预期时区，一般的国外VPS都是美国时区，你要想在中国时间运行，你得修改localtime 的时区为Asia/Sh</description>
     </item>
     <item>
       <title>Debian12安装MariaDB_10.11</title>
-      <link>http://localhost:1313/posts/techs/debian12%E5%AE%89%E8%A3%85mariadb_10.11/</link>
+      <link>https://blog.l50.top/posts/techs/debian12%E5%AE%89%E8%A3%85mariadb_10.11/</link>
       <pubDate>Fri, 01 Mar 2024 22:33:50 +0800</pubDate>
-      <guid>http://localhost:1313/posts/techs/debian12%E5%AE%89%E8%A3%85mariadb_10.11/</guid>
+      <guid>https://blog.l50.top/posts/techs/debian12%E5%AE%89%E8%A3%85mariadb_10.11/</guid>
       <description>在 Debian 12 上安装 MariaDB 10.11 1.在终端中运行下述命令更新系统： 1 sudo apt update &amp;amp;&amp;amp; sudo apt upgrade 2.在终端中运行下述命令安装MariaDB 10.11： 1 sudo apt install mariadb-server 3.完成后</description>
     </item>
     <item>
       <title>新海诚的三年之约 铃芽之旅</title>
-      <link>http://localhost:1313/posts/life/%E6%96%B0%E6%B5%B7%E8%AF%9A%E7%9A%84%E4%B8%89%E5%B9%B4%E4%B9%8B%E7%BA%A6-%E9%93%83%E8%8A%BD%E4%B9%8B%E6%97%85/</link>
+      <link>https://blog.l50.top/posts/life/%E6%96%B0%E6%B5%B7%E8%AF%9A%E7%9A%84%E4%B8%89%E5%B9%B4%E4%B9%8B%E7%BA%A6-%E9%93%83%E8%8A%BD%E4%B9%8B%E6%97%85/</link>
       <pubDate>Sat, 25 Mar 2023 18:40:02 +0800</pubDate>
-      <guid>http://localhost:1313/posts/life/%E6%96%B0%E6%B5%B7%E8%AF%9A%E7%9A%84%E4%B8%89%E5%B9%B4%E4%B9%8B%E7%BA%A6-%E9%93%83%E8%8A%BD%E4%B9%8B%E6%97%85/</guid>
+      <guid>https://blog.l50.top/posts/life/%E6%96%B0%E6%B5%B7%E8%AF%9A%E7%9A%84%E4%B8%89%E5%B9%B4%E4%B9%8B%E7%BA%A6-%E9%93%83%E8%8A%BD%E4%B9%8B%E6%97%85/</guid>
       <description>自从2016年入坑了新海诚的第一部电影，《你的名字》之后，对于新海诚的电影我是一部不落的看完了，2016年那部划时代的作品，《你的名字》实属</description>
     </item>
     <item>
       <title>使用acme.sh申请并自动续期SSL证书</title>
-      <link>http://localhost:1313/posts/life/%E4%BD%BF%E7%94%A8acme.sh%E7%94%B3%E8%AF%B7%E5%B9%B6%E8%87%AA%E5%8A%A8%E7%BB%AD%E6%9C%9Fssl%E8%AF%81%E4%B9%A6/</link>
+      <link>https://blog.l50.top/posts/life/%E4%BD%BF%E7%94%A8acme.sh%E7%94%B3%E8%AF%B7%E5%B9%B6%E8%87%AA%E5%8A%A8%E7%BB%AD%E6%9C%9Fssl%E8%AF%81%E4%B9%A6/</link>
       <pubDate>Wed, 15 Mar 2023 20:52:43 +0800</pubDate>
-      <guid>http://localhost:1313/posts/life/%E4%BD%BF%E7%94%A8acme.sh%E7%94%B3%E8%AF%B7%E5%B9%B6%E8%87%AA%E5%8A%A8%E7%BB%AD%E6%9C%9Fssl%E8%AF%81%E4%B9%A6/</guid>
+      <guid>https://blog.l50.top/posts/life/%E4%BD%BF%E7%94%A8acme.sh%E7%94%B3%E8%AF%B7%E5%B9%B6%E8%87%AA%E5%8A%A8%E7%BB%AD%E6%9C%9Fssl%E8%AF%81%E4%B9%A6/</guid>
       <description>一）ACME安装 1 curl https://get.acme.sh | sh 安装程序会自动做以下操作： 自动把 acme.sh 安装到你的 home 的.acme.sh目录下，即~/.acme.sh/ 自动创建一个 bash 的 alias,</description>
     </item>
     <item>
       <title>RSA算法和ECC加密算法的SSL证书区别对比</title>
-      <link>http://localhost:1313/posts/life/rsa%E7%AE%97%E6%B3%95%E5%92%8Cecc%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95%E7%9A%84ssl%E8%AF%81%E4%B9%A6%E5%8C%BA%E5%88%AB%E5%AF%B9%E6%AF%94/</link>
+      <link>https://blog.l50.top/posts/life/rsa%E7%AE%97%E6%B3%95%E5%92%8Cecc%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95%E7%9A%84ssl%E8%AF%81%E4%B9%A6%E5%8C%BA%E5%88%AB%E5%AF%B9%E6%AF%94/</link>
       <pubDate>Sat, 11 Mar 2023 21:39:01 +0800</pubDate>
-      <guid>http://localhost:1313/posts/life/rsa%E7%AE%97%E6%B3%95%E5%92%8Cecc%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95%E7%9A%84ssl%E8%AF%81%E4%B9%A6%E5%8C%BA%E5%88%AB%E5%AF%B9%E6%AF%94/</guid>
+      <guid>https://blog.l50.top/posts/life/rsa%E7%AE%97%E6%B3%95%E5%92%8Cecc%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95%E7%9A%84ssl%E8%AF%81%E4%B9%A6%E5%8C%BA%E5%88%AB%E5%AF%B9%E6%AF%94/</guid>
       <description>RSA 算法和 ECC 加密算法的SSL证书区别对比 RSA算法和ECC算法是目前流行的主要的两种 SSL证书公钥加密算法。 当然还有刚刚兴起的国密SM2加密算</description>
     </item>
     <item>
       <title>Hugo折腾记录</title>
-      <link>http://localhost:1313/posts/techs/hugo%E6%8A%98%E8%85%BE%E8%AE%B0%E5%BD%95/</link>
+      <link>https://blog.l50.top/posts/techs/hugo%E6%8A%98%E8%85%BE%E8%AE%B0%E5%BD%95/</link>
       <pubDate>Sat, 04 Mar 2023 23:44:32 +0800</pubDate>
-      <guid>http://localhost:1313/posts/techs/hugo%E6%8A%98%E8%85%BE%E8%AE%B0%E5%BD%95/</guid>
+      <guid>https://blog.l50.top/posts/techs/hugo%E6%8A%98%E8%85%BE%E8%AE%B0%E5%BD%95/</guid>
       <description>在终端直接输入hugo server -D就可以在本地预览了，本地预览网址为 localhost:1313， 输入hugo就可以生成public文件夹，这个文</description>
     </item>
     <item>
       <title>Git Core.autocrlf配置说明</title>
-      <link>http://localhost:1313/posts/life/git-core.autocrlf%E9%85%8D%E7%BD%AE%E8%AF%B4%E6%98%8E/</link>
+      <link>https://blog.l50.top/posts/life/git-core.autocrlf%E9%85%8D%E7%BD%AE%E8%AF%B4%E6%98%8E/</link>
       <pubDate>Fri, 03 Mar 2023 23:18:19 +0800</pubDate>
-      <guid>http://localhost:1313/posts/life/git-core.autocrlf%E9%85%8D%E7%BD%AE%E8%AF%B4%E6%98%8E/</guid>
+      <guid>https://blog.l50.top/posts/life/git-core.autocrlf%E9%85%8D%E7%BD%AE%E8%AF%B4%E6%98%8E/</guid>
       <description>格式化 格式化是许多开发人员在协作时，特别是在跨平台情况下，遇到的令人头疼的细小问题。 由于编辑器的不同或者Windows程序员在跨平台项目中的</description>
     </item>
     <item>
       <title>Hugo备份以及遇到的问题</title>
-      <link>http://localhost:1313/posts/life/hugo%E5%A4%87%E4%BB%BD%E4%BB%A5%E5%8F%8A%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</link>
+      <link>https://blog.l50.top/posts/life/hugo%E5%A4%87%E4%BB%BD%E4%BB%A5%E5%8F%8A%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</link>
       <pubDate>Wed, 01 Mar 2023 22:48:26 +0800</pubDate>
-      <guid>http://localhost:1313/posts/life/hugo%E5%A4%87%E4%BB%BD%E4%BB%A5%E5%8F%8A%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
+      <guid>https://blog.l50.top/posts/life/hugo%E5%A4%87%E4%BB%BD%E4%BB%A5%E5%8F%8A%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
       <description>当你在Windows下搭建hugo时你必须首先将git配置中的自动切换改为false，如果不调整该项，你通过Windows上传的hugo到g</description>
     </item>
     <item>
       <title>About</title>
-      <link>http://localhost:1313/about/</link>
+      <link>https://blog.l50.top/about/</link>
       <pubDate>Wed, 01 Mar 2023 20:44:52 +0800</pubDate>
-      <guid>http://localhost:1313/about/</guid>
+      <guid>https://blog.l50.top/about/</guid>
       <description>This is a testing web page. 这是一个测试页面，还没想好要写什么。</description>
     </item>
   </channel>
