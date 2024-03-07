@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Hadoop集群搭建实操教程 | 木木的小站</title>
+<meta name="keywords" content="Daily, Life">
+<meta name="description" content="前面是正常步骤，环境变量安装需要的Hadoop版本和Java版本 这里只说下小细节： hadoop-env.sh和yarn-env.sh里面需要">
+<meta name="author" content="木木">
+<link rel="canonical" href="https://blog.l50.top/posts/techs/hadoop%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA%E5%AE%9E%E6%93%8D%E6%95%99%E7%A8%8B/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.cda4dd3c6181658c241454409649b92706171f73092cc7ab9cc6182db26948b2.css" integrity="sha256-zaTdPGGBZYwkFFRAlkm5JwYXH3MJLMernMYYLbJpSLI=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://blog.l50.top/img/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://blog.l50.top/img/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://blog.l50.top/img/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://blog.l50.top/android-chrome-192x192.png">
+<link rel="mask-icon" href="https://blog.l50.top/android-chrome-512x512.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://blog.l50.top/posts/techs/hadoop%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA%E5%AE%9E%E6%93%8D%E6%95%99%E7%A8%8B/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="Hadoop集群搭建实操教程" />
+<meta property="og:description" content="前面是正常步骤，环境变量安装需要的Hadoop版本和Java版本 这里只说下小细节： hadoop-env.sh和yarn-env.sh里面需要" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.l50.top/posts/techs/hadoop%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA%E5%AE%9E%E6%93%8D%E6%95%99%E7%A8%8B/" />
+<meta property="og:image" content="https://blog.l50.top/img/Pictures/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-03-07T23:57:43+08:00" />
+<meta property="article:modified_time" content="2024-03-07T23:57:43+08:00" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://blog.l50.top/img/Pictures/" />
+<meta name="twitter:title" content="Hadoop集群搭建实操教程"/>
+<meta name="twitter:description" content="前面是正常步骤，环境变量安装需要的Hadoop版本和Java版本 这里只说下小细节： hadoop-env.sh和yarn-env.sh里面需要"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://blog.l50.top/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "🖥️techs",
+      "item": "https://blog.l50.top/posts/techs/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "Hadoop集群搭建实操教程",
+      "item": "https://blog.l50.top/posts/techs/hadoop%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA%E5%AE%9E%E6%93%8D%E6%95%99%E7%A8%8B/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Hadoop集群搭建实操教程",
+  "name": "Hadoop集群搭建实操教程",
+  "description": "前面是正常步骤，环境变量安装需要的Hadoop版本和Java版本 这里只说下小细节： hadoop-env.sh和yarn-env.sh里面需要",
+  "keywords": [
+    "Daily", "Life"
+  ],
+  "articleBody": "前面是正常步骤，环境变量安装需要的Hadoop版本和Java版本\n这里只说下小细节：\nhadoop-env.sh和yarn-env.sh里面需要添加export JAVA_HOME=\n切记配置好hosts映射和免密码登录（main\u003eworker worker\u003emain都需要正常，确保每个节点都能无密码登录到其他节点)\n另外：在Hadoop 3.X后，50070端口变成了9870端口，请注意\n固定每个节点IP，请看我另外一篇文章：点我跳转\n可供参考的配置文件：\ncore-site.xml：\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 fs.defaultFS hdfs://main:9000 hadoop.tmp.dir file:/opt/hadoop-3.2.3/hadoop-cache/tmp dfs.namenode.http-address main:9870 hdfs-site.xml：\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 dfs.replication 3 dfs.namenode.name.dir file:/opt/hadoop-3.2.3/hadoop-cache/dfs/name dfs.datanode.data.dir file:/opt/hadoop-3.2.3/hadoop-cache/dfs/data mapred-site.xml：\n1 2 3 4 5 6 mapreduce.framework.name yarn yarn-site.xml：\n1 2 3 4 5 6 7 8 9 10 yarn.resourcemanager.hostname main yarn.nodemanager.aux-services mapreduce_shuffle 当配置全部修改完成后，需要将main节点的配置下发到worker节点\n1 2 scp /opt/hadoop-3.2.3/etc/hadoop/* worker1:/opt/hadoop-3.2.3/etc/hadoop/ scp /opt/hadoop-3.2.3/etc/hadoop/* worker2:/opt/hadoop-3.2.3/etc/hadoop/ 一切准备就绪后，进行格式化节点（仅在第一次启动之前需要操作）\n1 hdfs namenode -format 另外附上几个可能用的到的命令：\n1 $HADOOP_HOME/sbin/start-all.sh\t#一键启动所有节点 1 $HADOOP_HOME/sbin/stop-all.sh #一键关闭所有节点 1 hdfs dfsadmin -report #hadoop状态检测 按上面的配置，当启动完成后，你应当能在 main:9870 看到如下界面：\n",
+  "wordCount" : "520",
+  "inLanguage": "en",
+  "image":"https://blog.l50.top/img/Pictures/","datePublished": "2024-03-07T23:57:43+08:00",
+  "dateModified": "2024-03-07T23:57:43+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "木木"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blog.l50.top/posts/techs/hadoop%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA%E5%AE%9E%E6%93%8D%E6%95%99%E7%A8%8B/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "木木的小站",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://blog.l50.top/img/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://blog.l50.top/" accesskey="h" title="木木的小站 (Alt + H)">
+                <img src="https://blog.l50.top/img/favicon.ico" alt="" aria-label="logo"
+                    height="50">木木的小站</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://blog.l50.top/archives" title="⏳Archive">
+                    <span>⏳Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.l50.top/search" title="🔍Search (Alt &#43; /)" accesskey=/>
+                    <span>🔍Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.l50.top/about" title="🗈About">
+                    <span>🗈About</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.l50.top/tags" title="🕮Tags">
+                    <span>🕮Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.l50.top/categories" title="📓Categories">
+                    <span>📓Categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="mailto:mumu@l50.top" title="✉️Contact Via Email">
+                    <span>✉️Contact Via Email</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://blog.l50.top/">Home</a>&nbsp;»&nbsp;<a href="https://blog.l50.top/posts/">Posts</a>&nbsp;»&nbsp;<a href="https://blog.l50.top/posts/techs/">🖥️techs</a></div>
+    <h1 class="post-title entry-hint-parent">
+      Hadoop集群搭建实操教程
+    </h1>
+    <div class="post-meta"><span title='2024-03-07 23:57:43 +0800 CST'>2024-03-07</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;木木
+
+</div>
+  </header> 
+<figure class="entry-cover"><img loading="eager" src="https://blog.l50.top/img/Pictures/" alt="">
+        
+</figure>
+
+  <div class="post-content"><p>前面是正常步骤，环境变量安装需要的Hadoop版本和Java版本</p>
+<p>这里只说下小细节：</p>
+<p>hadoop-env.sh和yarn-env.sh里面需要添加export JAVA_HOME=</p>
+<p>切记配置好hosts映射和免密码登录（main&gt;worker worker&gt;main都需要正常，确保每个节点都能无密码登录到其他节点)</p>
+<p>另外：在Hadoop 3.X后，50070端口变成了9870端口，请注意</p>
+<p>固定每个节点IP，请看我另外一篇文章：<a href="https://blog.l50.top/posts/techs/vmware%E6%89%8B%E5%8A%A8%E4%BF%AE%E6%94%B9%E7%89%B9%E5%AE%9A%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%BB%98%E8%AE%A4%E5%88%86%E9%85%8D%E7%9A%84ip%E5%9C%B0%E5%9D%80/">点我跳转</a></p>
+<p>可供参考的配置文件：</p>
+<p><strong>core-site.xml：</strong></p>
+<div class="highlight"><div style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">14
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="font-weight:bold">&lt;configuration&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold">&lt;property&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="font-weight:bold">&lt;name&gt;</span>fs.defaultFS<span style="font-weight:bold">&lt;/name&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="font-weight:bold">&lt;value&gt;</span>hdfs://main:9000<span style="font-weight:bold">&lt;/value&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold">&lt;/property&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold">&lt;property&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="font-weight:bold">&lt;name&gt;</span>hadoop.tmp.dir<span style="font-weight:bold">&lt;/name&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="font-weight:bold">&lt;value&gt;</span>file:/opt/hadoop-3.2.3/hadoop-cache/tmp<span style="font-weight:bold">&lt;/value&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold">&lt;/property&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="font-weight:bold">&lt;property&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="font-weight:bold">&lt;name&gt;</span>dfs.namenode.http-address<span style="font-weight:bold">&lt;/name&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="font-weight:bold">&lt;value&gt;</span>main:9870<span style="font-weight:bold">&lt;/value&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold">&lt;/property&gt;</span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">&lt;/configuration&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>hdfs-site.xml：</strong></p>
+<div class="highlight"><div style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">14
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="font-weight:bold">&lt;configuration&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold">&lt;property&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="font-weight:bold">&lt;name&gt;</span>dfs.replication<span style="font-weight:bold">&lt;/name&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="font-weight:bold">&lt;value&gt;</span>3<span style="font-weight:bold">&lt;/value&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold">&lt;/property&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold">&lt;property&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="font-weight:bold">&lt;name&gt;</span>dfs.namenode.name.dir<span style="font-weight:bold">&lt;/name&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="font-weight:bold">&lt;value&gt;</span>file:/opt/hadoop-3.2.3/hadoop-cache/dfs/name<span style="font-weight:bold">&lt;/value&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold">&lt;/property&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold">&lt;property&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="font-weight:bold">&lt;name&gt;</span>dfs.datanode.data.dir<span style="font-weight:bold">&lt;/name&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="font-weight:bold">&lt;value&gt;</span>file:/opt/hadoop-3.2.3/hadoop-cache/dfs/data<span style="font-weight:bold">&lt;/value&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold">&lt;/property&gt;</span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">&lt;/configuration&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>mapred-site.xml：</strong></p>
+<div class="highlight"><div style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">6
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="font-weight:bold">&lt;configuration&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold">&lt;property&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="font-weight:bold">&lt;name&gt;</span>mapreduce.framework.name<span style="font-weight:bold">&lt;/name&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="font-weight:bold">&lt;value&gt;</span>yarn<span style="font-weight:bold">&lt;/value&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold">&lt;/property&gt;</span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">&lt;/configuration&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>yarn-site.xml：</strong></p>
+<div class="highlight"><div style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">10
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="font-weight:bold">&lt;configuration&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold">&lt;property&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="font-weight:bold">&lt;name&gt;</span>yarn.resourcemanager.hostname<span style="font-weight:bold">&lt;/name&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="font-weight:bold">&lt;value&gt;</span>main<span style="font-weight:bold">&lt;/value&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold">&lt;/property&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold">&lt;property&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="font-weight:bold">&lt;name&gt;</span>yarn.nodemanager.aux-services<span style="font-weight:bold">&lt;/name&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="font-weight:bold">&lt;value&gt;</span>mapreduce_shuffle<span style="font-weight:bold">&lt;/value&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold">&lt;/property&gt;</span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">&lt;/configuration&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>当配置全部修改完成后，需要将main节点的配置下发到worker节点</p>
+<div class="highlight"><div style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>scp /opt/hadoop-3.2.3/etc/hadoop/* worker1:/opt/hadoop-3.2.3/etc/hadoop/
+</span></span><span style="display:flex;"><span>scp /opt/hadoop-3.2.3/etc/hadoop/* worker2:/opt/hadoop-3.2.3/etc/hadoop/
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>一切准备就绪后，进行格式化节点（<strong>仅在第一次启动之前需要操作）</strong></p>
+<div class="highlight"><div style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hdfs namenode -format
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>另外附上几个可能用的到的命令：</p>
+<div class="highlight"><div style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$HADOOP_HOME/sbin/start-all.sh	<span style="color:#007f7f">#一键启动所有节点</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$HADOOP_HOME/sbin/stop-all.sh <span style="color:#007f7f">#一键关闭所有节点</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hdfs dfsadmin -report <span style="color:#007f7f">#hadoop状态检测</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>按上面的配置，当启动完成后，你应当能在 main:9870 看到如下界面：</p>
+<p><img loading="lazy" src="https://img.l50.top/file/8be038be4c8f5c8d860d1.png" alt="Hadoop正常运行"  />
+</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://blog.l50.top/tags/daily/">Daily</a></li>
+      <li><a href="https://blog.l50.top/tags/life/">Life</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="next" href="https://blog.l50.top/posts/techs/hugo%E5%B8%B8%E7%94%A8%E5%8F%82%E6%95%B0/">
+    <span class="title">Next »</span>
+    <br>
+    <span>Hugo常用参数</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2024 <a href="https://blog.l50.top/">木木的小站</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

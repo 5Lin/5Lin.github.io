@@ -105,8 +105,8 @@
   "keywords": [
     "Daily", "Life"
   ],
-  "articleBody": "要在 Debian 中为您的 ens33 网络接口设置固定 IP，您需要编辑 /etc/network/interfaces 文件。以下是一个示例配置，您可以根据自己的网络环境进行修改：\n1 2 3 4 5 6 7 8 9 10 11 # The loopback network interface auto lo iface lo inet loopback # The primary network interface allow-hotplug ens33 iface ens33 inet static address 192.168.152.130 netmask 255.255.255.0 gateway 192.168.152.1 dns-nameservers 8.8.8.8 8.8.4.4 在上述配置中：\naddress 是您想要设置的静态 IP 地址。 netmask 是您的网络掩码。 gateway 是您的网关地址。 dns-nameservers 是您的 DNS 服务器地址。 编辑完 /etc/network/interfaces 文件后，您需要重启网络服务以使更改生效。您可以使用以下命令来重启网络服务：\n1 sudo /etc/init.d/networking restart 请注意，您需要具有适当的权限才能编辑 /etc/network/interfaces 文件和重启网络服务。如果您在执行这些步骤时遇到任何问题，我建议您寻求专业的技术支持。希望这个信息对您有所帮助！\n​\n",
-  "wordCount" : "267",
+  "articleBody": "要在 Debian 中为您的 ens33 网络接口设置固定 IP，您需要编辑 /etc/network/interfaces 文件。以下是一个示例配置，您可以根据自己的网络环境进行修改：\n1 2 3 4 5 6 7 8 9 10 11 # The loopback network interface auto lo iface lo inet loopback # The primary network interface allow-hotplug ens33 iface ens33 inet static address 192.168.152.50 netmask 255.255.255.0 gateway 192.168.152.2 dns-nameservers 192.168.152.2 在上述配置中：\naddress 是您想要设置的静态 IP 地址。 netmask 是您的网络掩码。 gateway 是您的网关地址。 dns-nameservers 是您的 DNS 服务器地址。 编辑完 /etc/network/interfaces 文件后，您需要重启网络服务以使更改生效。您可以使用以下命令来重启网络服务：\n1 sudo /etc/init.d/networking restart 请注意，您需要具有适当的权限才能编辑 /etc/network/interfaces 文件和重启网络服务。如果您在执行这些步骤时遇到任何问题，我建议您寻求专业的技术支持。希望这个信息对您有所帮助！\n",
+  "wordCount" : "265",
   "inLanguage": "en",
   "image":"https://blog.l50.top/img/Pictures/","datePublished": "2024-02-25T08:28:32+08:00",
   "dateModified": "2024-02-25T08:28:32+08:00",
@@ -246,10 +246,10 @@
 </span></span><span style="display:flex;"><span><span style="color:#007f7f"># The primary network interface</span>
 </span></span><span style="display:flex;"><span>allow-hotplug ens33
 </span></span><span style="display:flex;"><span>iface ens33 inet static
-</span></span><span style="display:flex;"><span>    address 192.168.152.130
+</span></span><span style="display:flex;"><span>    address 192.168.152.50
 </span></span><span style="display:flex;"><span>    netmask 255.255.255.0
-</span></span><span style="display:flex;"><span>    gateway 192.168.152.1
-</span></span><span style="display:flex;"><span>    dns-nameservers 8.8.8.8 8.8.4.4
+</span></span><span style="display:flex;"><span>    gateway 192.168.152.2
+</span></span><span style="display:flex;"><span>    dns-nameservers 192.168.152.2
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>在上述配置中：</p>
@@ -269,7 +269,6 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>请注意，您需要具有适当的权限才能编辑 <code>/etc/network/interfaces</code> 文件和重启网络服务。如果您在执行这些步骤时遇到任何问题，我建议您寻求专业的技术支持。希望这个信息对您有所帮助！</p>
-<p>​</p>
 
 
   </div>
