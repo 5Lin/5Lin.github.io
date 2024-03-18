@@ -6,8 +6,15 @@
     <description>Recent content in 日常 on 木木的小站</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 07 Mar 2024 23:57:43 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 18 Mar 2024 19:14:03 +0800</lastBuildDate>
     <atom:link href="https://blog.l50.top/categories/%E6%97%A5%E5%B8%B8/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mybatis SqlSessionUtil工具类</title>
+      <link>https://blog.l50.top/posts/techs/mybatis-sqlsessionutil%E5%B7%A5%E5%85%B7%E7%B1%BB/</link>
+      <pubDate>Mon, 18 Mar 2024 19:14:03 +0800</pubDate>
+      <guid>https://blog.l50.top/posts/techs/mybatis-sqlsessionutil%E5%B7%A5%E5%85%B7%E7%B1%BB/</guid>
+      <description>1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 package top.l50.work5.utils; import org.apache.ibatis.io.Resources; import org.apache.ibatis.session.SqlSession; import org.apache.ibatis.session.SqlSessionFactory; import org.apache.ibatis.session.SqlSessionFactoryBuilder; import java.io.IOException; import java.io.InputStream; public class SqlSessionUtil { private static volatile SqlSessionFactory sqlSessionFactory; // 私有构造方法，</description>
+    </item>
     <item>
       <title>Hadoop集群搭建实操教程</title>
       <link>https://blog.l50.top/posts/techs/hadoop%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA%E5%AE%9E%E6%93%8D%E6%95%99%E7%A8%8B/</link>
