@@ -105,8 +105,8 @@
   "keywords": [
     "Daily", "Life"
   ],
-  "articleBody": "在mybatis-config,xml中配置别名的方法： 顺序规定 The content of element type “configuration” must match “(properties?,settings?,typeAliases?,typeHandlers?,objectFactory?,objectWrapperFactory?,reflectorFactory?,plugins?,environments?,databaseIdProvider?,mappers?)”.\ntypeAliases需按顺序放在指定位置，即按上述顺序，位于setting后\n用法1：使用alias=“name”，这样即将type对应的类映射为 name了，如下图，即可在mybatis里面用abc替换top.l50.work5.pojo.Student 1 2 3 4 5 用法2：只使用type=，这时候默认的别名就是这个属性的类名，且不区分大小写，如下图，可采用（Student或student代替top.l50.work5.pojo.Student) 1 2 3 4 5 （不常用）也可将两种混合使用，如图：\n用法3：使用package name参数 1 2 3 4 5 \u003cpackage name=\"top.l50.mybatis.pojo\"/\u003e ",
-  "wordCount" : "444",
+  "articleBody": "在mybatis-config,xml中配置别名的方法： 顺序规定 The content of element type “configuration” must match “(properties?,settings?,typeAliases?,typeHandlers?,objectFactory?,objectWrapperFactory?,reflectorFactory?,plugins?,environments?,databaseIdProvider?,mappers?)”.\ntypeAliases需按顺序放在指定位置，即按上述顺序，位于setting后\n用法1：使用alias=“name”，这样即将type对应的类映射为 name了，如下图，即可在mybatis里面用abc替换top.l50.work5.pojo.Student 1 2 3 4 5 用法2：只使用type=，这时候默认的别名就是这个属性的类名，且不区分大小写，如下图，可采用（Student或student代替top.l50.work5.pojo.Student) 1 2 3 4 5 （不常用）也可将两种混合使用\n用法3：使用package name参数 1 2 3 4 5 \u003cpackage name=\"top.l50.mybatis.pojo\"/\u003e ",
+  "wordCount" : "440",
   "inLanguage": "en",
   "image":"https://blog.l50.top/img/Pictures/mybatis-logo.jpg","datePublished": "2024-03-19T14:14:36+08:00",
   "dateModified": "2024-03-19T14:14:36+08:00",
@@ -258,8 +258,6 @@
 <h3 id="顺序规定">顺序规定<a hidden class="anchor" aria-hidden="true" href="#顺序规定">#</a></h3>
 <p>The content of element type &ldquo;configuration&rdquo; must match &ldquo;(properties?,settings?,typeAliases?,typeHandlers?,objectFactory?,objectWrapperFactory?,reflectorFactory?,plugins?,environments?,databaseIdProvider?,mappers?)&rdquo;.</p>
 <p>typeAliases需按顺序放在指定位置，即按上述顺序，位于setting后</p>
-<p><img loading="lazy" src="C:%5cUsers%5cmoki%5cDesktop%5cBlog-Git%5cstatic%5cimg%5cPictures%5cassets%5c1.png" alt="image-20240319110345104"  />
-</p>
 <h5 id="用法1使用aliasname这样即将type对应的类映射为-name了如下图即可在mybatis里面用abc替换topl50work5pojostudent">用法1：使用alias=“name”，这样即将type对应的类映射为 name了，如下图，即可在mybatis里面用abc替换top.l50.work5.pojo.Student<a hidden class="anchor" aria-hidden="true" href="#用法1使用aliasname这样即将type对应的类映射为-name了如下图即可在mybatis里面用abc替换topl50work5pojostudent">#</a></h5>
 <div class="highlight"><div style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
@@ -294,9 +292,7 @@
 </span></span><span style="display:flex;"><span>&lt;!--别名用法--&gt;
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>（不常用）也可将两种混合使用，如图：</p>
-<p><img loading="lazy" src="C:%5cUsers%5cmoki%5cDesktop%5cBlog-Git%5cstatic%5cimg%5cPictures%5cassets%5c2.png" alt="image-20240319110345104"  />
-</p>
+</div><p>（不常用）也可将两种混合使用</p>
 <h5 id="用法3使用package-name参数">用法3：使用package name参数<a hidden class="anchor" aria-hidden="true" href="#用法3使用package-name参数">#</a></h5>
 <div class="highlight"><div style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
@@ -314,9 +310,7 @@
 </span></span><span style="display:flex;"><span>    &lt;/typeAliases&gt;
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p><img loading="lazy" src="C:%5cUsers%5cmoki%5cDesktop%5cBlog-Git%5cstatic%5cimg%5cPictures%5cassets%5c3.png" alt="image-20240319141136884"  />
-</p>
-
+</div>
 
   </div>
 
