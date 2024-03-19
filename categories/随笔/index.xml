@@ -6,8 +6,15 @@
     <description>Recent content in 随笔 on 木木的小站</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 18 Mar 2024 19:14:03 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 19 Mar 2024 14:14:36 +0800</lastBuildDate>
     <atom:link href="https://blog.l50.top/categories/%E9%9A%8F%E7%AC%94/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>在mybatis Config.xml中配置别名</title>
+      <link>https://blog.l50.top/posts/techs/%E5%9C%A8mybatis-config.xml%E4%B8%AD%E9%85%8D%E7%BD%AE%E5%88%AB%E5%90%8D/</link>
+      <pubDate>Tue, 19 Mar 2024 14:14:36 +0800</pubDate>
+      <guid>https://blog.l50.top/posts/techs/%E5%9C%A8mybatis-config.xml%E4%B8%AD%E9%85%8D%E7%BD%AE%E5%88%AB%E5%90%8D/</guid>
+      <description>在mybatis-config,xml中配置别名的方法： 顺序规定 The content of element type &amp;ldquo;configuration&amp;rdquo; must match &amp;ldquo;(properties?,settings?,typeAliases?,typeHandlers?,objectFactory?,objectWrapperFactory?,reflectorFactory?,plugins?,environments?,databaseIdProvider?,mappers?)&amp;rdquo;. typeAliases需按顺序放在指定位置，即按上述顺序，</description>
+    </item>
     <item>
       <title>Mybatis SqlSessionUtil工具类</title>
       <link>https://blog.l50.top/posts/techs/mybatis-sqlsessionutil%E5%B7%A5%E5%85%B7%E7%B1%BB/</link>
@@ -115,9 +122,9 @@
     </item>
     <item>
       <title>Hugo备份以及遇到的问题</title>
-      <link>https://blog.l50.top/posts/life/hugo%E5%A4%87%E4%BB%BD%E4%BB%A5%E5%8F%8A%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</link>
+      <link>https://blog.l50.top/posts/techs/hugo%E5%A4%87%E4%BB%BD%E4%BB%A5%E5%8F%8A%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</link>
       <pubDate>Wed, 01 Mar 2023 22:48:26 +0800</pubDate>
-      <guid>https://blog.l50.top/posts/life/hugo%E5%A4%87%E4%BB%BD%E4%BB%A5%E5%8F%8A%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
+      <guid>https://blog.l50.top/posts/techs/hugo%E5%A4%87%E4%BB%BD%E4%BB%A5%E5%8F%8A%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
       <description>当你在Windows下搭建hugo时你必须首先将git配置中的自动切换改为false，如果不调整该项，你通过Windows上传的hugo到g</description>
     </item>
     <item>

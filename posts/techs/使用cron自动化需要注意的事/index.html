@@ -59,12 +59,12 @@
 <meta property="og:description" content="使用cron记得调整本地时间与预期时区，一般的国外VPS都是美国时区，你要想在中国时间运行，你得修改localtime 的时区为Asia/Sh" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.l50.top/posts/techs/%E4%BD%BF%E7%94%A8cron%E8%87%AA%E5%8A%A8%E5%8C%96%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E4%BA%8B/" />
-<meta property="og:image" content="https://blog.l50.top/img/Pictures/" /><meta property="article:section" content="posts" />
+<meta property="og:image" content="https://blog.l50.top/img/Pictures/linux-logo.png" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2024-03-01T23:11:16+08:00" />
 <meta property="article:modified_time" content="2024-03-01T23:11:16+08:00" />
 
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content="https://blog.l50.top/img/Pictures/" />
+<meta name="twitter:image" content="https://blog.l50.top/img/Pictures/linux-logo.png" />
 <meta name="twitter:title" content="使用cron自动化需要注意的事"/>
 <meta name="twitter:description" content="使用cron记得调整本地时间与预期时区，一般的国外VPS都是美国时区，你要想在中国时间运行，你得修改localtime 的时区为Asia/Sh"/>
 
@@ -108,7 +108,7 @@
   "articleBody": "使用cron记得调整本地时间与预期时区，一般的国外VPS都是美国时区，你要想在中国时间运行，你得修改localtime 的时区为Asia/Shanghai\n1. 查看VPS时间，最后的+0800就是时区。 # date -R Mon, 27 Feb 2012 17:32:07 +0800\n一般来说时间有误的VPS都不在东八区，所以如果发现你的VPS时区不对，首先要做的就是校正时区 （如果VPS是xen的就需要先执行 echo 1 \u003e /proc/sys/xen/independent_wallclock）\n2. 校正时区 # rm -rf /etc/localtime # ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime\n校正之后再date -R一次，如果时间对了那就OK了（通常情况openvz VPS只要修改时区就可以），反之继续同步时间。\n如果您想手动修改/etc/localtime文件来更改时区设置，请按照以下步骤进行操作：\n打开终端并以root用户身份登录。\n备份当前的/etc/localtime文件，以防止意外更改。可以使用以下命令进行备份：\n1 sudo cp /etc/localtime /etc/localtime.bak 确定您想要设置的时区文件的路径。在中国，通常使用/usr/share/zoneinfo/Asia/Shanghai作为时区文件。您可以根据自己所在的城市选择相应的路径。例如，如果您在北京，可以使用/usr/share/zoneinfo/Asia/Shanghai。\n使用以下命令将所选的时区文件复制到/etc/localtime：\n1 sudo cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime 完成后，您可以验证时区设置是否已更改。可以运行以下命令来检查：\n1 date 如果时区设置已正确更改，输出的时间和时区应与您所选择的城市相匹配。\n请注意，手动修改/etc/localtime文件是一种更改时区设置的方法，但并不是官方推荐的方式。使用官方提供的工具如dpkg-reconfigure来更改时区设置更为可靠和推荐。如果您之前尝试使用dpkg-reconfigure命令时未能成功更改时区，可能还有其他问题存在，建议仔细检查和排除其他可能的原因。\n",
   "wordCount" : "781",
   "inLanguage": "en",
-  "image":"https://blog.l50.top/img/Pictures/","datePublished": "2024-03-01T23:11:16+08:00",
+  "image":"https://blog.l50.top/img/Pictures/linux-logo.png","datePublished": "2024-03-01T23:11:16+08:00",
   "dateModified": "2024-03-01T23:11:16+08:00",
   "author":[{
     "@type": "Person",
@@ -219,7 +219,7 @@
 
 </div>
   </header> 
-<figure class="entry-cover"><img loading="eager" src="https://blog.l50.top/img/Pictures/" alt="">
+<figure class="entry-cover"><img loading="eager" src="https://blog.l50.top/img/Pictures/linux-logo.png" alt="">
         
 </figure>
 

@@ -59,12 +59,12 @@
 <meta property="og:description" content="要关闭所有正在运行的 Docker 容器，可以按照以下步骤进行操作： 查看正在运行的容器： 首先，可以使用以下命令查看当前正在运行的 Docker 容器： 1 docker ps 这将列出所有" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.l50.top/posts/techs/docker%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/" />
-<meta property="og:image" content="https://blog.l50.top/img/Pictures/" /><meta property="article:section" content="posts" />
+<meta property="og:image" content="https://blog.l50.top/img/Pictures/docker-logo.png" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2024-03-02T08:31:18+08:00" />
 <meta property="article:modified_time" content="2024-03-02T08:31:18+08:00" />
 
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content="https://blog.l50.top/img/Pictures/" />
+<meta name="twitter:image" content="https://blog.l50.top/img/Pictures/docker-logo.png" />
 <meta name="twitter:title" content="Docker常用操作"/>
 <meta name="twitter:description" content="要关闭所有正在运行的 Docker 容器，可以按照以下步骤进行操作： 查看正在运行的容器： 首先，可以使用以下命令查看当前正在运行的 Docker 容器： 1 docker ps 这将列出所有"/>
 
@@ -108,7 +108,7 @@
   "articleBody": "要关闭所有正在运行的 Docker 容器，可以按照以下步骤进行操作：\n查看正在运行的容器：\n首先，可以使用以下命令查看当前正在运行的 Docker 容器：\n1 docker ps 这将列出所有正在运行的容器及其相关信息。\n停止所有容器：\n如果要停止所有正在运行的容器，可以使用以下命令：\n1 docker stop $(docker ps -aq) 这个命令会停止所有正在运行的容器。\n删除所有容器（可选）：\n如果需要删除所有已停止的容器，可以使用以下命令：\n1 docker rm $(docker ps -aq) 这将删除所有已停止的容器。请注意，这将永久删除这些容器。\n关闭 Docker 服务：\n最后，如果需要停止 Docker 服务本身，可以使用以下命令：\n1 sudo systemctl stop docker 这将停止 Docker 服务。\n通过执行以上步骤，你可以停止并删除所有正在运行的 Docker 容器，并关闭 Docker 服务。请确保你想要执行这些操作，并明白这将会影响正在运行的应用程序。\n要启动所有已停止的 Docker 容器，你可以按照以下步骤进行操作：\n查看所有容器：\n首先，你可以使用以下命令查看所有的 Docker 容器（包括已停止的容器）：\n1 docker ps -a 这将列出所有的容器，包括它们的状态（运行中或已停止）。\n启动所有已停止的容器：\n如果你想启动所有已停止的容器，可以使用以下命令：\n1 docker start $(docker ps -aqf \"status=exited\") 这个命令会启动所有已停止的容器。\n通过执行以上步骤，你可以启动所有已停止的 Docker 容器。请确保你想要执行这些操作，并明白这将会影响容器中的应用程序。如果有任何疑问或需要进一步帮助，请随时告诉我。\n",
   "wordCount" : "547",
   "inLanguage": "en",
-  "image":"https://blog.l50.top/img/Pictures/","datePublished": "2024-03-02T08:31:18+08:00",
+  "image":"https://blog.l50.top/img/Pictures/docker-logo.png","datePublished": "2024-03-02T08:31:18+08:00",
   "dateModified": "2024-03-02T08:31:18+08:00",
   "author":[{
     "@type": "Person",
@@ -219,7 +219,7 @@
 
 </div>
   </header> 
-<figure class="entry-cover"><img loading="eager" src="https://blog.l50.top/img/Pictures/" alt="">
+<figure class="entry-cover"><img loading="eager" src="https://blog.l50.top/img/Pictures/docker-logo.png" alt="">
         
 </figure>
 
